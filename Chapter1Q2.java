@@ -11,14 +11,16 @@ public class CTCI {
 
     }
     static boolean checkPerm(String a, String b){
-        Hashtable<Character, Integer> ht1 = new Hashtable<>();
-        for (int i = 0; i < a.length(); i++ ){
-            ht1.put(a.charAt(i),1);
-            ht1.put(b.charAt(i),1);
+        if (a.length() != b.length()){
+            return false;
         }
-        System.out.print(ht1);
-        return true;
+        return sort(a).equals(sort(b));
+
     }
-    return false;
+    static String sort(String s){
+        char[] content = s.toCharArray();
+        java.util.Arrays.sort(content);
+        return new String(content);
+    }
 }
 
